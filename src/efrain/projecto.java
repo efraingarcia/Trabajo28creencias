@@ -86,7 +86,7 @@ public class projecto {
         return texto[i];
     }
     
-    String desordenar(int i)
+   String desordenar(int i)
     {
         for (int j = 0; j < 13; j++) {
             for (int k = j+1; k < 14; k++) {
@@ -123,4 +123,45 @@ public class projecto {
         }
         return texto[i];
     }
+    
+   public String Busqueda(int numero)
+        { 
+         int centro,inicio=0,fin=creencias.length-1;
+           String encontrado="creencia no encontrada";
+          while(inicio<=fin)
+           {
+             centro=(fin+inicio)/2;
+             if(creencias [centro]==numero)
+                 return texto[centro];
+             else if( creencias [centro]<numero  )
+               {
+                  inicio=centro+1;
+               }
+                else 
+                {
+                  fin=centro-1;
+                }
+             
+            }
+     
+      return encontrado;
+    }
+   
+   String OrdenarInsercion(int c)
+    {
+        for (int i = 1; i < creencias.length; i++) 
+        {
+           int aux = creencias[i];
+           String text = texto[i];
+            for (int j = i-1; j >=0 && creencias[j]>aux; j--)
+            {
+                creencias[j+1]=creencias[j];
+                creencias[j]=aux;
+                
+                texto[j+1]=texto[j];
+                texto[j]=text;
+            }
+       }
+           return texto[c];
+        }
 }
